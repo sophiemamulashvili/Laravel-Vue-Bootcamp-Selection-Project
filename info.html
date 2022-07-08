@@ -37,14 +37,16 @@
             </div>
             <h2>Personal information</h2>
             <p class="p2-5">This Is Basic Information Fields</p>
-            <form class="form-info" >
-                <input type="text" name="" id="name" placeholder="Name">
-                <input type="text" name="" id="mail" placeholder="Email address">
-                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Phone number">
-                <input type="datetime" name="" id="date" placeholder="Date Of birth">
+            <form class="form-info" id="form-info">
+                <input type="text"  id="name" placeholder="Name *">
+                <input type="text" name="mail" id="mail" placeholder="Email address *">
+                <input type="text" name="phone" id="phone" placeholder="Phone number *" >
+                <input type="datetime" name="date" id="date" placeholder="Date Of birth *">
             </form>
-            <a href="getstarted.html"><button class="back-btn"> <div class="back">Back </div></button></a>
-            <button class="next-btn"><a href="experience.html"><div class="next">Next<img class="icon" src="Img/arrow-icon.png" style="position: relative; left:20px"></div></a> </button>
+            <div id="done-icon"></div>
+            <div id="errorbox"></div>
+            <button class="back-btn" id="2" onclick="redirection(this)"> <div class="back">Back </div></button>
+            <button class="next-btn" id="3" onclick="validation(this)"> <div class="next">Next<img class="icon" src="Img/arrow-icon.png" style="position: relative; left:20px"></div></button>
         </div>
     </div>
 
