@@ -8,7 +8,7 @@
    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="restoreInfo()">
     <script src="app.js"></script>
     <div class="container-2">
         <div class="content-2">
@@ -38,11 +38,12 @@
             <h2>Personal information</h2>
             <p class="p2-5">This Is Basic Information Fields</p>
             <form class="form-info" id="form-info">
-                <input type="text"  id="name" placeholder="Name *">
-                <input type="text" name="mail" id="mail" placeholder="Email address *">
-                <input type="text" name="phone" id="phone" placeholder="Phone number *" >
-                <input type="datetime" name="date" id="date" placeholder="Date Of birth *">
+                <input type="text" name ="name" id="name" placeholder="Name *"  onkeyup='saveValue(this);' onload="restore(this)">
+                <input type="text" name="mail" id="mail" placeholder="Email address *"  onkeyup='saveValue(this);' onload="restore(this)">
+                <input type="text" name="phone" id="phone" placeholder="Phone number *"  onkeyup='saveValue(this);' onload="restore(this)" >
+                <input type="date" name="date" id="date" placeholder="Date Of birth *"  onkeyup='saveValue(this);' onload="restore(this)">
             </form>
+   
             <div id="done-icon"></div>
             <div id="errorbox"></div>
             <button class="back-btn" id="2" onclick="redirection(this)"> <div class="back">Back </div></button>

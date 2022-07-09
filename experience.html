@@ -6,9 +6,10 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>experience</title>
    <link rel="stylesheet" href="style.css">
+   
 </head>
 
-<body>
+<body onload="restoreExp()">
     <script src="app.js"></script>
 
     <div class="container-2">
@@ -41,25 +42,27 @@
             <p class="p2-5">This Is Basic Information Fields</p>
            <form class="form-info-2" action="">
                 <div class="selects">
-                    <select class="select-1" name="know" id="knowledge">
+                    <select class="select-1" name="knowledge" id="knowledge" onclick="saveValue(this)">
                         <option value="" hidden>Level of knowledge  <span style="color:#DC3545;"> *</span></option>
                         <option value="begginer">Begginer</option>
                         <option value="intermediate">Intermediate</option>
                         <option value="professional">Professional</option>
                     </select>
-                    <select class="select-2" name="favchr" id="favchar" >
+                    <select class="select-2" name="favcharacter" id="favchar" onclick="saveValue(this)" >
                         <option value="" hidden>Choose your character <span style="color:#DC3545;"> *</span></option>
-                        <option value="sofi">sofi</option>
                     </select>
+
+
+                    
                 </div>
                 <br>
                 <div class="radio">
                     <label class="radio-label" for="radio">Have you participated in a Redberry Chempionship? <span style="color:#DC3545;"> *</span></label>
                     <br>
-                    <div class="radio-options">
-                        <input type="radio" name="yes" id="yes" value="yes">
+                    <div class="radio-options" >
+                        <input type="radio" id="yes"   name="yesorno" value="yes" onclick="saveValue(this)">
                         <label for="yes">Yes</label>
-                        <input type="radio" name="yes" id="no" value="no">
+                        <input type="radio" id="no"   name="yesorno" value="no" onclick="saveValue(this)">
                         <label for="no">No</label>
                     </div>
                 </div>
@@ -67,7 +70,7 @@
             <div id="errorbox"></div>
   
                   <button class="back-btn"  id="4" onclick="redirection(this)"> <div class="back">Back </div></button>
-                  <button class="next-btn" id="5" onclick="validation2(this)"><div class="next">Next<img class="icon" src="Img/arrow-icon.png" style="position: relative; left:20px"></div></button>
+                  <button class="next-btn" id="5" style="width:80px;" onclick="validation2(this)"><div class="next">Done</div></button>
 
 
         </div>

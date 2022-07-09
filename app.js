@@ -1,3 +1,5 @@
+// VALITADION FUNCTION FOR PAGE INFO.HTML
+
 function validation(e){
     nameinp = document.getElementById('name');
     mailinp = document.getElementById('mail');
@@ -20,6 +22,7 @@ function validation(e){
     }
 }
 
+// VALIDATE NAME INPUT
 
 function nameisvalid(name, box){
         if(name.value.length<2){
@@ -35,6 +38,9 @@ function nameisvalid(name, box){
         }
 
 }
+
+// VALIDATE MAIL INPUT
+
 function mailisvalid(mail, box, redberry){
         if(!(mail.value.includes(redberry))){
             mail.classList.add('err-input');
@@ -48,6 +54,9 @@ function mailisvalid(mail, box, redberry){
             return true
         }
 }
+
+// VALIDATE PHONE INPUT 
+
 function phoneisvalid(phone, box, nums){
         if(!(phone.value.match(nums))){
             phone.classList.add('err-input');
@@ -62,11 +71,15 @@ function phoneisvalid(phone, box, nums){
         }
 }
 
+// CLOSE ERROR BOX FUNCTION
+
 function closebox(){
     errbox = document.getElementById('errorbox');
     errbox.classList.remove('err');
     errbox.innerHTML="";
 }
+
+// REDIRECTION ACCORDING TO BUTTON IDS
 
 function redirection(e){
     id = e.id;
@@ -85,6 +98,8 @@ function redirection(e){
     }
 }
 
+// VALIDATION FUNCTION FOR EXPERIENCE.HTML PAGE
+
 function validation2(e){
     errbox = document.getElementById('errorbox');
     know = document.getElementById("knowledge");
@@ -101,7 +116,85 @@ function validation2(e){
 
 }
 
+// ADDING DONE ICON ON INPUTS
+
 function adddoneicon(left, top){
     div = document.getElementById("done-icon")
     div.innerHTML += "<img src='Img/done-icon.png' style='position: absolute; left:"+left+"px;top:"+top+"px;'>"
 }
+ 
+
+var HttpClient = function() {
+    this.get = function(aUrl, aCallback) {
+        var anHttpRequest = new XMLHttpRequest();
+        anHttpRequest.onreadystatechange = function() { 
+            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                aCallback(anHttpRequest.responseText);
+        }
+
+        anHttpRequest.open( "GET", aUrl, true );            
+        anHttpRequest.send( null );
+    }
+}
+
+// GET CHARACTERS FROM API
+
+
+var client = new HttpClient();
+client.get('https://chess-tournament-api.devtest.ge/api/grandmasters', function(response){
+   favchar = document.getElementById('favchar');
+   obj = JSON.parse(response)
+    for(let i=0; i<obj.length; i++){
+        favchar.innerHTML+="<option value='"+obj[i].name+"' id = '"+obj[i].id+"'><img src='https://chess-tournament-api.devtest.ge/'"+obj[i].image+"' style='width=30px;'>"+obj[i].name+"</option>"
+    }
+});
+
+
+
+
+
+
+//SAVE INPUT VALUES
+
+function saveValue(e){
+    if (typeof(Storage) !== "undefined") {
+        var namee = e.getAttribute("name");
+        var val = e.value; 
+        localStorage.setItem(namee, val);
+        console.log(localStorage.getItem(namee))
+    }else{
+        console.log('sorry');
+    }
+}
+
+//GET INFO PAGE INPUT VALUES
+
+function restoreInfo(){
+    var namee = document.getElementById('name');
+    var mail = document.getElementById('mail');
+    var phone = document.getElementById('phone');
+    var date = document.getElementById('date');
+    namee.value =  localStorage.getItem("name");
+    mail.value =  localStorage.getItem("mail");
+    phone.value =  localStorage.getItem("phone");
+    date.value =  localStorage.getItem("date");
+
+}
+
+// RESTORE EXPERIENCE PAGE INPUT VALUES
+
+function restoreExp(){
+    var knowledge = document.getElementById('knowledge');
+    var favcharacter = document.getElementById('favchar');
+    var radios = document.getElementsByName("yesorno"); 
+    var val = localStorage.getItem('yesorno');
+    for(let i=0;i<radios.length;i++){
+        if(radios[i].value == val){
+            radios[i].checked = true; 
+        }
+    }
+    knowledge.value =  localStorage.getItem("knowledge");
+    favcharacter.value =  localStorage.getItem("favcharacter"); // doesn't work don't know why
+}
+
+
