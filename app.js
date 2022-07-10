@@ -265,11 +265,11 @@ function postData(){
         method:'POST',
         body:JSON.stringify(
             {
-            "name":namee.toString(),
-            "email":mail.toString(),
-            "phone":phone.toString(),
-            "date_of_birth":date.toString(),
-            "experience_level":know.toString(),
+            "name":namee,
+            "email":mail,
+            "phone":phone,
+            "date_of_birth":date,
+            "experience_level":know,
             "already_participated":participated,
             "character_id":char_id
         }
