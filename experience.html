@@ -13,7 +13,7 @@
     <script src="app.js"></script>
 
     <div class="container-2">
-        <div class="content-2">
+        <div class="content">
             <div class="rectangle1">
                 <div class="logo" style="position:relative; left:60px;">
                     <img src="Img/Vector.png" style="position:relative; bottom:5px;" alt="">
@@ -43,8 +43,8 @@
            <form class="form-info-2" action="">
                 <div class="selects">
                     <select class="select-1" name="knowledge" id="knowledge" onclick="saveValue(this)">
-                        <option value="" hidden>Level of knowledge  <span style="color:#DC3545;"> *</span></option>
-                        <option value="begginer">Begginer</option>
+                        <option value="" hidden>Level of knowledge <span style="color:#DC3545;"> *</span></option>
+                        <option value="beginner">Beginner</option>
                         <option value="intermediate">Intermediate</option>
                         <option value="professional">Professional</option>
                     </select>
@@ -70,7 +70,7 @@
             <div id="errorbox"></div>
   
                   <button class="back-btn"  id="4" onclick="redirection(this)"> <div class="back">Back </div></button>
-                  <button class="next-btn" id="5" style="width:80px;" onclick="validation2(this)"><div class="next">Done</div></button>
+                  <button class="next-btn" id="5" style="width:80px;" onclick=" postData()"><div class="next">Done</div></button>
 
 
         </div>
